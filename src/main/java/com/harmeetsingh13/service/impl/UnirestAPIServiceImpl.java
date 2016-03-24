@@ -49,9 +49,9 @@ public class UnirestAPIServiceImpl implements APIService{
 				throw new NotFound("1002", "Cities not found");
 			}
 			Unirest.shutdown();
-		} catch (UnirestException | IOException e) {
+		} catch (UnirestException | IOException ex) {
 			NotFound notFound = new NotFound("9001", "Internt connection problem");
-			notFound.initCause(notFound);
+			notFound.initCause(ex);
 			throw notFound;
 		}
 		return option;
